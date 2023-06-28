@@ -1,0 +1,60 @@
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #362f83;
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    min-height: 70px;
+  }
+  &__left {
+    & a {
+      text-decoration: none;
+      font-size: 34px;
+      color: #fff;
+    }
+    &-burger {
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      border-radius: 20%;
+      background-color: #fff;
+      border: none;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+  }
+  &__right {
+    &-user {
+      display: flex;
+      align-items: center;
+      & p {
+        color: #fff;
+        margin-right: 10px;
+      }
+    }
+    &-userIcon {
+      max-width: 10px;
+      cursor: pointer;
+    }
+    &-settings {
+      background-color: transparent;
+      border: none;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  max-width: 30px;
+}

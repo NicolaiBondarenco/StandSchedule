@@ -1,0 +1,9 @@
+.listSchedule {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 15px;
+  &:last-child {
+    border-bottom: none;
+  }
+}

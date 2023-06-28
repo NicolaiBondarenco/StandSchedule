@@ -1,0 +1,22 @@
+.tableSchedule {
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0px 2px 47px -1px rgba(34, 60, 80, 0.2);
+  padding: 25px 0 15px;
+  border-radius: 7px;
+  &__title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #dddddd;
+    &-item {
+      font-weight: 500;
+    }
+  }
+}

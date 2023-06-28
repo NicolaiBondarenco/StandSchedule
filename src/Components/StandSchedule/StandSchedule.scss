@@ -1,0 +1,13 @@
+.standSchedule {
+  padding-top: 100px;
+  &__top {
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #fff2e2;
+    text-align: center;
+    margin-bottom: 30px;
+    & p {
+      font-size: 20px;
+    }
+  }
+}
