@@ -2,7 +2,9 @@ import React from 'react'
 import './TableSchedule.scss'
 import { ListSchedule } from '../ListSchedule/ListSchedule'
 
-const realArr = ['09:00', ' Савчук Владимир', ' Савчук Владимир ', 'Отчет']
+import report from '../../Assets/images/report.png'
+
+const realArr = ['09:00', ' Савчук Владимир', ' Савчук Владимир ', report]
 
 export const TableSchedule = () => {
   return (

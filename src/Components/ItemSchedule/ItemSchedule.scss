@@ -1,0 +1,9 @@
+.itemSchedule {
+  &:last-child {
+    margin-right: 7px;
+    cursor: pointer;
+  }
+  &__image {
+    width: 15px;
+  }
+}

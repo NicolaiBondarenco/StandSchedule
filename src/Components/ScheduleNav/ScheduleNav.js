@@ -1,10 +1,22 @@
 import React, { useState } from 'react'
 import './ScheduleNav.scss'
+import { Link, useNavigate } from 'react-router-dom'
 
-const nav = ['Эта неделя', 'Следующая неделя', 'Возвещатели', 'Отчет за неделю']
+const nav = [
+  { title: 'Эта неделя', path: '/' },
+  { title: 'Следующая неделя', path: '/next' },
+  { title: 'Возвещатели', path: '/publishers' },
+  { title: 'Отчет за неделю', path: '/report' },
+]
 
 export const ScheduleNav = () => {
   const [active, setActive] = useState(0)
+  const navigate = useNavigate()
+
+  const handleItemClick = (index, path) => {
+    setActive(index)
+    navigate(path)
+  }
 
   return (
     <ul className="scheduleNav">
@@ -14,9 +26,9 @@ export const ScheduleNav = () => {
             index === active ? 'scheduleNav__item-active' : 'scheduleNav__item'
           }
           key={index}
-          onClick={() => setActive(index)}
+          onClick={() => handleItemClick(index, item.path)}
         >
-          <a href="#">{item}</a>
+          <Link to={item.path}>{item.title}</Link>
         </li>
       ))}
     </ul>
