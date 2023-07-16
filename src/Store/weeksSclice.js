@@ -4,24 +4,32 @@ import axios from '../Utils/axios'
 export const fetchCurrentAndNextWeeks = createAsyncThunk(
   'weeks/fetchCurrentAndNextWeeks',
   async () => {
-    const { data } = await axios.get(
-      '/stand/templates?congregationId=2&standId=1',
-    )
-    return data.data
+    try {
+      const { data } = await axios.get(
+        '/stand/templates?congregationId=2&standId=1',
+      )
+      return data.data
+    } catch (error) {
+      console.log(error)
+    }
   },
 )
 
 export const fetchWeeksDate = createAsyncThunk(
   'weeks/fetchWeeksDate',
   async () => {
-    const { data } = await axios.get('/week_days')
-    return data.data
+    try {
+      const { data } = await axios.get('/week_days')
+      return data.data
+    } catch (error) {
+      console.log(error)
+    }
   },
 )
 
 const initialState = {
   allData: [],
-  currentWeeksDays: [],
+  weeksDays: [],
   status: true,
   error: false,
 }
@@ -35,16 +43,29 @@ export const weeksSclice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    //fetchCurrentAndNextWeeks
     builder.addCase(fetchCurrentAndNextWeeks.pending, (state) => {
       state.status = true
     })
     builder.addCase(fetchCurrentAndNextWeeks.fulfilled, (state, action) => {
-      console.log(action.payload)
       state.status = false
       state.allData = action.payload
       state.error = false
     })
     builder.addCase(fetchCurrentAndNextWeeks.rejected, (state) => {
+      state.status = false
+      state.error = true
+    })
+    //fetchWeeksDate
+    builder.addCase(fetchWeeksDate.pending, (state) => {
+      state.status = true
+    })
+    builder.addCase(fetchWeeksDate.fulfilled, (state, action) => {
+      state.status = false
+      state.weeksDays = action.payload
+      state.error = false
+    })
+    builder.addCase(fetchWeeksDate.rejected, (state) => {
       state.status = false
       state.error = true
     })
